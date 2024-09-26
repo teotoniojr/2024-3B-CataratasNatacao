@@ -1,6 +1,9 @@
 import os
 
-nadadores = []
+nadadores = [{'nome':'Teotonio', 'categoria':'Borboleta', 'ativo':True},
+             {'nome':'Anilda', 'categoria':'Costas','ativo':True},
+             {'nome':'Osmar', 'categoria':'Peito','ativo':False},
+             {'nome':'Ana', 'categoria':'Livre', 'ativo':True}]
 
 def exbir_subtitulo(texto):
     os.system('clear')
@@ -55,7 +58,10 @@ def mostrar_nadadores():
     exbir_subtitulo('Listar nadadores')
 
     for nadador in nadadores:
-        print(f' - {nadador}')
+        nome_nadador = nadador['nome']
+        categoria = nadador['categoria']
+        ativo = nadador['ativo']
+        print(f' - {nome_nadador} | {categoria} | {ativo}')
     
     retorna_menu_principal()
 
