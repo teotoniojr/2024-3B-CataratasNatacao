@@ -37,7 +37,7 @@ def escolhe_opcao():
         elif opcao_escolhida == 2:
             mostrar_nadadores()
         elif opcao_escolhida == 3:
-            print('Ativar/desativar nadador')
+            alterar_estado_nadador()
         elif opcao_escolhida == 4:
             finalizar_programa()
         else:
@@ -49,7 +49,9 @@ def cadastrar_nadadores():
     exbir_subtitulo('Cadastrar Nadadores')
 
     nome_nadador = input('Digite o nome do nadador: ')
-    nadadores.append(nome_nadador)
+    categoria = input(f'Qual o estilo que o(a) {nome_nadador} nada')
+    dados_nadador = {'nome': nome_nadador, 'categoria':categoria, 'ativo':True}
+    nadadores.append(dados_nadador)
     print(f'{nome_nadador} foi adicionado(a) aos atletas de Foz do Iguaçu')
 
     retorna_menu_principal()
@@ -65,6 +67,20 @@ def mostrar_nadadores():
     
     retorna_menu_principal()
 
+def alterar_estado_nadador():
+    exbir_subtitulo('Cadastrar Nadadores')
+    nome_nadador = input('Qual nadador(a) você gostaria de mudar o status?')
+    nadador_encontrado = False
+
+    for nadador in nadadores:
+        if nome_nadador == nadador['nome']
+            nadador_encontrado = True
+            nadador['ativo'] = not nadador['ativo']
+            mensagem = f'O {nome_nadador} foi ativado com sucesso' if nadador['ativo'] else f' O(A) {nome_nadador} foi desativado'
+
+            print(mensagem)
+    if not nadador_encontrado:
+        print('O nadador ou nadadora não existe')
 
 def finalizar_programa():
     os.system('clear')
